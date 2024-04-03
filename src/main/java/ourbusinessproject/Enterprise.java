@@ -1,9 +1,14 @@
 package ourbusinessproject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Enterprise {
     @NotEmpty
     private String name;
@@ -13,6 +18,9 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     /**
      * set the name
@@ -76,5 +84,13 @@ public class Enterprise {
      */
     public String getContactEmail() {
         return contactEmail;
+    }
+
+    /**
+     * Get the id
+     * @return the id
+     */
+    public Long getId() {
+        return id;
     }
 }

@@ -1,11 +1,19 @@
 package ourbusinessproject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 
+@Entity
 public class Project {
     @NotEmpty
     private String title;
     private String description;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     /**
      * Set the title
@@ -37,5 +45,10 @@ public class Project {
      */
     public String getDescription() {
         return description;
+    }
+
+
+    public Long getId() {
+        return id;
     }
 }
