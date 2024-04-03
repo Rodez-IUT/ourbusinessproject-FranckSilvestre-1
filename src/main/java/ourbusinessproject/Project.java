@@ -47,7 +47,10 @@ public class Project {
         return description;
     }
 
-
+    /**
+     * Get the id
+     * @return the id
+     */
     public Long getId() {
         return id;
     }
