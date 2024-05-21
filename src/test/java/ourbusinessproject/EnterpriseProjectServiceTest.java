@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.Mockito.verify;
@@ -29,7 +30,8 @@ class EnterpriseProjectServiceTest {
     @Test
     public void testEntityManagerPersistAProjectWhenANewProjectIsCreated() {
         // when: trying to create a project
-        project = enterpriseProjectService.newProject("a title", "a description");
+        Enterprise enterprise1 = Mockito.mock(Enterprise.class);
+        project = enterpriseProjectService.newProject("a title", "a description", enterprise1);
         // then: the service delegates the entity manager to persist the project
         verify(enterpriseProjectService.getEntityManager()).persist(project);
         // and: the service asks the entity manager to synchronize with the database
