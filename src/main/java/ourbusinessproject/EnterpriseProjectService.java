@@ -49,6 +49,7 @@ public class EnterpriseProjectService {
         project.setEnterprise(enterprise);
         entityManager.persist(project);
         entityManager.flush();
+        enterprise.addProject(project);
         return project;
     }
 
