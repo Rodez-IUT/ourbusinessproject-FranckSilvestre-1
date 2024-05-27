@@ -1,5 +1,6 @@
 package ourbusinessproject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -25,7 +26,7 @@ public class Enterprise {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "enterprise")
+    @OneToMany(mappedBy = "enterprise") @JsonIgnore
     private Collection<Project> projects;
 
     /**
