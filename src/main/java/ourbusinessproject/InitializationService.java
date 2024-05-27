@@ -30,6 +30,8 @@ public class InitializationService {
         project1E1 = enterpriseProjectService.newProject("p1E1","P1E1 desc",enterprise1);
         project1E2 = enterpriseProjectService.newProject("p1E2","P1E2 desc",enterprise2);
         project2E1 = enterpriseProjectService.newProject("p2E1","P2E1 desc",enterprise1);
+        // For generating the error and testing the rollback
+        // project2E1 = enterpriseProjectService.newProject("","P2E1 desc",enterprise1);
     }
 
     private void initEnterprise() {
